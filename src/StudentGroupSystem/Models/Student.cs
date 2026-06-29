@@ -12,9 +12,12 @@ namespace StudentGroupSystem.Models
 
         public double AverageGrade => Grades.Count == 0 ? 0 : Grades.Average(g => (double)g);
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
 >>>>>>> feature/vector-class
+=======
+>>>>>>> b1899417a80d8849282970e0d9537e5517095862
 
         private string _fullName;
         public string FullName
