@@ -59,5 +59,19 @@ namespace StudentGroupSystem.Models
 
             return sb.ToString();
         }
+
+        public static bool operator >(Student a, Student b)
+            => a.AverageGrade > b.AverageGrade ||
+            (a.AverageGrade == b.AverageGrade && a.CourseProgress > b.CourseProgress);
+
+        public static bool operator <(Student a, Student b) => b > a;
+        public static bool operator >=(Student a, Student b) => !(a < b);
+        public static bool operator <=(Student a, Student b) => !(a > b);
+
+        public static bool operator ==(Student a, Student b)
+            => a.AverageGrade == b.AverageGrade && a.CourseProgress == b.CourseProgress;
+
+        public static bool operator !=(Student a, Student b) => !(a == b);
+
     }
 }
