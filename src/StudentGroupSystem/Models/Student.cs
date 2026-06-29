@@ -11,7 +11,10 @@ namespace StudentGroupSystem.Models
         public List<GradePoint> Grades { get; set; } = new();
 
         public double AverageGrade => Grades.Count == 0 ? 0 : Grades.Average(g => (double)g);
+<<<<<<< HEAD
 
+=======
+>>>>>>> feature/vector-class
 
         private string _fullName;
         public string FullName
