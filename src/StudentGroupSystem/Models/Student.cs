@@ -6,6 +6,12 @@ namespace StudentGroupSystem.Models
     public class Student
     {
         public Guid Id { get; set; } = Guid.NewGuid();
+        public int CourseProgress { get; set; } = 0;
+
+        public List<GradePoint> Grades { get; set; } = new();
+
+        public double AverageGrade => Grades.Count == 0 ? 0 : Grades.Average(g => (double)g);
+
 
         private string _fullName;
         public string FullName
