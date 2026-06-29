@@ -69,5 +69,32 @@ namespace StudentGroupSystem.Models
                 AddStudent(student);
             }
         }
+
+        public static StudentGroup operator +(StudentGroup a, StudentGroup b)
+        {
+            var merged = new StudentGroup();
+            merged.Students.AddRange(a.Students);
+            merged.Students.AddRange(b.Students);
+            return merged;
+        }
+
+        public Student this[string id]
+            => Students.FirstOrDefault(s => s.Id.ToString() == id);
+
+        public Student BestStudent()
+        {
+            if (Students.Count == 0) return null;
+
+            Student best = Students[0];
+            foreach (var s in Students)
+                if (s > best)
+                    best = s;
+
+            return best;
+        }   
+
+        public StudentGroup MergeGroups(StudentGroup other) => this + other;
+
+
     }
 }
