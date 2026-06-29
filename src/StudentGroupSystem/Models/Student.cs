@@ -12,7 +12,6 @@ namespace StudentGroupSystem.Models
 
         public double AverageGrade => Grades.Count == 0 ? 0 : Grades.Average(g => (double)g);
 
-
         private string _fullName;
         public string FullName
         {
@@ -65,5 +64,19 @@ namespace StudentGroupSystem.Models
 
             return sb.ToString();
         }
+
+        public static bool operator >(Student a, Student b)
+            => a.AverageGrade > b.AverageGrade ||
+            (a.AverageGrade == b.AverageGrade && a.CourseProgress > b.CourseProgress);
+
+        public static bool operator <(Student a, Student b) => b > a;
+        public static bool operator >=(Student a, Student b) => !(a < b);
+        public static bool operator <=(Student a, Student b) => !(a > b);
+
+        public static bool operator ==(Student a, Student b)
+            => a.AverageGrade == b.AverageGrade && a.CourseProgress == b.CourseProgress;
+
+        public static bool operator !=(Student a, Student b) => !(a == b);
+
     }
 }
